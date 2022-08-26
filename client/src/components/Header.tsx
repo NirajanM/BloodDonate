@@ -6,9 +6,21 @@ interface IAppProps {
 const Header: React.FunctionComponent<IAppProps> = (props) => {
     return (
         <>
-            <div className='container max-w-xs bg-black text-white text-center'>
-                hello world
-            </div>
+            <header className='container bg-blue-300 text-white'>
+                <nav>
+                    <ul>
+                        <li onClick={() => {
+
+                        }}>Home</li>
+                        <li onClick={() => {
+
+                        }}>About Us</li>
+                        <li onClick={() => {
+
+                        }}>Contact Us</li>
+                    </ul>
+                </nav>
+            </header>
         </>
     );
 };
