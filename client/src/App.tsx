@@ -25,17 +25,28 @@ const App: React.FunctionComponent = () => {
   return (
     <>
       <header className='container bg-blue-300 text-white'>
-        <nav>
-          <ul>
-            <li onClick={() => {
-              setCurrentPage("home");
-            }}>Home</li>
-            <li onClick={() => {
-              setCurrentPage("about");
-            }}>About Us</li>
+        <nav className='flex justify-center items-center'>
+          <ul className='flex justify-around space-x-8 items-center'>
+            <li
+              onClick={() => {
+                setCurrentPage("home");
+              }}
+              className={currentPage === "home" ? "scale-125 font-black cursor-pointer" : "cursor-pointer"}
+            >Home</li>
+
+            <li
+              onClick={() => {
+                setCurrentPage("about");
+              }}
+              className={currentPage === "about" ? "scale-125 font-black cursor-pointer" : "cursor-pointer"}
+            >About Us</li>
+
             <li onClick={() => {
               setCurrentPage("contact");
-            }}>Contact Us</li>
+            }}
+              className={currentPage === "contact" ? "scale-125 font-black cursor-pointer" : "cursor-pointer"}
+            >Contact Us</li>
+
           </ul>
         </nav>
       </header>
