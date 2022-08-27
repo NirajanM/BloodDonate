@@ -4,6 +4,7 @@ import Footer from './components/Footer';
 import Home from './components/Home';
 import AboutUs from './components/AboutUs';
 import ContactUs from './components/ContactUs';
+import Logo from './img/lowLogo.png';
 
 interface iAllPages {
   home: React.FunctionComponent;
@@ -23,26 +24,30 @@ const App: React.FunctionComponent = () => {
   const CurrentSection: React.FunctionComponent = allPages[currentPage as keyof typeof allPages];
   return (
     <>
-      <nav className='container bg-red-400 h-14 text-white flex justify-center items-center'>
+      <nav className='container bg-red-400 h-14 text-white flex justify-end pr-4 md:pr-8 lg:pr-12 items-center'>
+        <div className='absolute left-6 top-1'>
+          <img src={Logo} alt="logo" onClick={() => {
+            setCurrentPage("home");
+          }} />
+        </div>
         <ul className='flex gap-x-6 items-center text-lg font-semibold'>
           <li
             onClick={() => {
               setCurrentPage("home");
             }}
-            className={currentPage === "home" ? "scale-125 font-black cursor-pointer underline" : "cursor-pointer"}
+            className={currentPage === "home" ? "scale-125 border rounded-sm p-1 bg-slake-200 font-black cursor-pointer hover:bg-slate-300" : "cursor-pointer hover:bg-slate-300 hover:rounded-sm"}
           >Home</li>
-
           <li
             onClick={() => {
               setCurrentPage("about");
             }}
-            className={currentPage === "about" ? "scale-125 font-black underline cursor-pointer" : "cursor-pointer"}
+            className={currentPage === "about" ? "scale-125 border rounded-sm p-1 bg-slake-200 font-black underline cursor-pointer hover:bg-slate-300" : "cursor-pointer hover:bg-slate-300 hover:rounded-sm"}
           >About Us</li>
 
           <li onClick={() => {
             setCurrentPage("contact");
           }}
-            className={currentPage === "contact" ? "scale-125 font-black underline cursor-pointer" : "cursor-pointer"}
+            className={currentPage === "contact" ? "scale-125 border rounded-sm p-1 bg-slake-200 font-black underline cursor-pointer hover:bg-slate-300" : "cursor-pointer hover:bg-slate-300 hover:rounded-sm"}
           >Contact Us</li>
         </ul>
       </nav>
