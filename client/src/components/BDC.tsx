@@ -18,7 +18,7 @@ const BDC: React.FunctionComponent = () => {
         },
         {
             question: "which blood group is universal donor?",
-            answer: " O-, as the people of theis blood group can safely donate blood to people of any blood type. Hospital demands this blood group more."
+            answer: " O-, as the people of this blood group can safely donate blood to people of any blood type. Hospital demands this blood group more."
         },
 
 
