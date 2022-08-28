@@ -31,7 +31,7 @@ const Home: React.FunctionComponent<IHomeProps> = (props) => {
                     }}
                 ></div>
             </div>
-            <section className='my-4 grid grid-cols-3 gap-10 px-8'>
+            <section className='my-4 grid grid-cols-3 gap-10 my-16 px-8'>
                 {listArray.map((list) => {
                     return (
                         <Card title={list.title} description={list.description} />

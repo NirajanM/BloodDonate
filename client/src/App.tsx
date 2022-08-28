@@ -41,13 +41,13 @@ const App: React.FunctionComponent = () => {
             onClick={() => {
               setCurrentPage("about");
             }}
-            className={currentPage === "about" ? "scale-125 border rounded-sm p-1 bg-slake-200 font-black underline cursor-pointer hover:bg-slate-300" : "cursor-pointer hover:bg-slate-300 hover:rounded-sm"}
+            className={currentPage === "about" ? "scale-125 border rounded-sm p-1 bg-slake-200 font-black cursor-pointer hover:bg-slate-300" : "cursor-pointer hover:bg-slate-300 hover:rounded-sm"}
           >About Us</li>
 
           <li onClick={() => {
             setCurrentPage("contact");
           }}
-            className={currentPage === "contact" ? "scale-125 border rounded-sm p-1 bg-slake-200 font-black underline cursor-pointer hover:bg-slate-300" : "cursor-pointer hover:bg-slate-300 hover:rounded-sm"}
+            className={currentPage === "contact" ? "scale-125 border rounded-sm p-1 bg-slake-200 font-black cursor-pointer hover:bg-slate-300" : "cursor-pointer hover:bg-slate-300 hover:rounded-sm"}
           >Contact Us</li>
         </ul>
       </nav>
