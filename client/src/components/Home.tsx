@@ -1,12 +1,26 @@
 import * as React from 'react';
 import Background from '../img/bloodBag.png'
+import Card from './Card';
 interface IHomeProps {
 }
 
 const Home: React.FunctionComponent<IHomeProps> = (props) => {
+    const listArray = [{
+        title: "Find a donor",
+        description: 'look for a blood donor from available list.'
+    },
+    {
+        title: "Blood bank",
+        description: 'check for nearby blood banks.'
+    },
+    {
+        title: "Requests",
+        description: 'check for requests from people in need.'
+    }
+    ]
     return (
         <div className='container'>
-            <div className="container flex justify-around">
+            <div className="container flex my-4 justify-around">
                 <div className='text-left text-slate-600 py-10 sm:py-20 md:py-28 lg:py-40 text-lg sm:text-3xl font-bold md:text-4xl lg:text-5xl px-4 lg:px-8'>
                     <h1>The gift of blood is a gift to someone’s life.</h1>
                 </div>
@@ -17,6 +31,13 @@ const Home: React.FunctionComponent<IHomeProps> = (props) => {
                     }}
                 ></div>
             </div>
+            <section className='my-4 grid grid-cols-3 gap-10 px-8'>
+                {listArray.map((list) => {
+                    return (
+                        <Card title={list.title} description={list.description} />
+                    );
+                })}
+            </section>
 
         </div>
     );
