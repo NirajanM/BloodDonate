@@ -1,6 +1,7 @@
 import * as React from 'react';
 import Background from '../img/bloodBag.png'
 import Card from './Card';
+import BDC from './BDC';
 interface IHomeProps {
 }
 
@@ -38,7 +39,7 @@ const Home: React.FunctionComponent<IHomeProps> = (props) => {
                     );
                 })}
             </section>
-
+            <BDC />
         </div>
     );
 };
