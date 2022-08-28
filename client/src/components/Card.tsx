@@ -1,6 +1,7 @@
 import React from 'react';
 
 interface CardProps {
+    goto: string;
     title: string;
     description: string;
 }

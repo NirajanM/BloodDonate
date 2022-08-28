@@ -7,14 +7,17 @@ interface IHomeProps {
 
 const Home: React.FunctionComponent<IHomeProps> = (props) => {
     const listArray = [{
+        goto: "/donor",
         title: "Find a donor",
         description: 'look for a blood donor from available list.'
     },
     {
+        goto: "/bloodBank",
         title: "Blood bank",
         description: 'check for nearby blood banks.'
     },
     {
+        goto: "/requests",
         title: "Requests",
         description: 'check for requests from people in need.'
     }
@@ -35,7 +38,7 @@ const Home: React.FunctionComponent<IHomeProps> = (props) => {
             <section className='my-4 grid grid-cols-3 gap-10 my-16 px-8'>
                 {listArray.map((list) => {
                     return (
-                        <Card title={list.title} description={list.description} />
+                        <Card goto={list.goto} title={list.title} description={list.description} />
                     );
                 })}
             </section>
