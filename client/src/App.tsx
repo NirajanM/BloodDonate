@@ -4,7 +4,7 @@ import Footer from './components/Footer';
 import Home from './components/Home';
 import AboutUs from './components/AboutUs';
 import ContactUs from './components/ContactUs';
-import Logo from './img/lowLogo.png';
+import Logo from './img/bloodDonationLogo.png';
 
 interface iAllPages {
   home: React.FunctionComponent;
@@ -24,9 +24,9 @@ const App: React.FunctionComponent = () => {
   const CurrentSection: React.FunctionComponent = allPages[currentPage as keyof typeof allPages];
   return (
     <>
-      <nav className='container bg-red-400 h-14 text-white flex justify-end pr-4 md:pr-8 lg:pr-12 items-center'>
-        <div className='absolute left-6 top-1'>
-          <img src={Logo} alt="logo" onClick={() => {
+      <nav className='container bg-red-400 h-16 text-white flex justify-end pr-4 md:pr-8 lg:pr-12 items-center'>
+        <div className='absolute left-6 top-0'>
+          <img src={Logo} className="w-16" alt="logo" onClick={() => {
             setCurrentPage("home");
           }} />
         </div>
