@@ -24,8 +24,8 @@ const App: React.FunctionComponent = () => {
   const CurrentSection: React.FunctionComponent = allPages[currentPage as keyof typeof allPages];
   return (
     <>
-      <nav className='container bg-red-400 h-16 text-white flex justify-end pr-1 md:pr-4 lg:pr-8 items-center'>
-        <div className='absolute left-6 top-0'>
+      <nav className='container bg-red-400 h-20 text-white flex justify-end pr-1 md:pr-4 lg:pr-8 items-center'>
+        <div className='absolute left-6 top-2'>
           <img src={Logo} className="w-16" alt="logo" onClick={() => {
             setCurrentPage("home");
           }} />
