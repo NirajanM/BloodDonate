@@ -15,9 +15,11 @@ const App: React.FunctionComponent = () => {
       <Router>
         <nav className='container bg-red-400 h-20 text-white flex justify-end pr-1 md:pr-4 lg:pr-8 items-center'>
           <div className='absolute left-6 top-2'>
-            <img src={Logo} className="w-16" alt="logo" onClick={() => {
-              setCurrentPage("home");
-            }} />
+            <Link to="/">
+              <img src={Logo} className="w-16" alt="logo" onClick={() => {
+                setCurrentPage("home");
+              }} />
+            </Link>
           </div>
           <ul className='flex gap-x-6 items-center text-xs sm:text-sm lg:text-lg font-semibold'>
 
