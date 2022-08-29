@@ -25,7 +25,7 @@ const Home: React.FunctionComponent<IHomeProps> = (props) => {
 
             <Routes>
                 <Route path="" element={<ThreeOptions />} />
-                <Route path='donor' element={<FindDonor />} />
+                <Route path='donor/*' element={<FindDonor />} />
             </Routes>
             <BDC />
         </div>
