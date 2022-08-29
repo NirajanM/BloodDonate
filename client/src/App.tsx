@@ -35,16 +35,25 @@ const App: React.FunctionComponent = () => {
           <ul className='flex gap-x-6 items-center text-lg font-semibold'>
 
             <li
+              onClick={() => {
+                setCurrentPage("home");
+              }}
               className={currentPage === "home" ? "scale-125 border rounded-sm p-1 bg-slake-200 font-black cursor-pointer hover:bg-slate-300" : "cursor-pointer hover:bg-slate-300 hover:rounded-sm"}
             ><Link to="/">Home</Link></li>
 
             <li
+              onClick={() => {
+                setCurrentPage("about");
+              }}
               className={currentPage === "about" ? "scale-125 border rounded-sm p-1 bg-slake-200 font-black cursor-pointer hover:bg-slate-300" : "cursor-pointer hover:bg-slate-300 hover:rounded-sm"}
-            ><Link to="/about">About Us</Link></li>
+            ><Link to="/about">About</Link></li>
 
             <li
+              onClick={() => {
+                setCurrentPage("contact");
+              }}
               className={currentPage === "contact" ? "scale-125 border rounded-sm p-1 bg-slake-200 font-black cursor-pointer hover:bg-slate-300" : "cursor-pointer hover:bg-slate-300 hover:rounded-sm"}
-            ><Link to="/contact">Contact Us</Link></li>
+            ><Link to="/contact">Contact</Link></li>
           </ul>
         </nav>
         <Routes>
