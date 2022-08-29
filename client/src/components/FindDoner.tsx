@@ -31,9 +31,9 @@ const FindDonor: React.FunctionComponent = () => {
   ]
 
   return (
-    <div className='border-4 py-8 rounded-lg'>
-      <h3 className='container bg-red-400 text-white text-lg font-semibold p-4'>Choose your blood group:</h3>
-      <div className='grid grid-cols-2 sm:grid-cols-4 md:grid-cols-4 lg:grid-cols-8 lg:gap-8'>
+    <div className='border-4 md:m-4 m-12 py-8 rounded-lg'>
+      <h3 className='container bg-red-400 text-white text-lg rounded-lg font-semibold p-4'>Choose your blood group:</h3>
+      <div className='grid grid-cols-2 sm:grid-cols-4 place-items-center md:grid-cols-8 lg:gap-8 xl:mx-4 2xl:mx-8'>
         {BloodGroups.map((bloodGroup) => {
           return (
             <BloodGroupBox type={bloodGroup.type} />

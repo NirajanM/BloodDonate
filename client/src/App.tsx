@@ -19,7 +19,7 @@ const App: React.FunctionComponent = () => {
               setCurrentPage("home");
             }} />
           </div>
-          <ul className='flex gap-x-6 items-center text-lg font-semibold'>
+          <ul className='flex gap-x-6 items-center text-xs sm:text-sm lg:text-lg font-semibold'>
 
             <li
               onClick={() => {

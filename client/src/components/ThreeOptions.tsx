@@ -18,7 +18,7 @@ const ThreeOptions: React.FunctionComponent = () => {
         description: 'check for requests from people in need.'
     }
     ]
-    return (<section className='my-4 grid grid-cols-3 gap-10 my-16 px-8'>
+    return (<section className='my-4 grid grid-cols-1 lg:grid-cols-3 gap-10 my-16 px-8'>
         {listArray.map((list) => {
             return (
                 <Card goto={list.goto} title={list.title} description={list.description} />
