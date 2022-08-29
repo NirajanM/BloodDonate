@@ -1,4 +1,4 @@
-import * as React from 'react';
+import React from 'react';
 import Logo from '../img/highResLogo.png';
 const currentYear: number = new Date().getFullYear();
 const Footer: React.FunctionComponent = () => {
