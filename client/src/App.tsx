@@ -2,9 +2,9 @@ import React from 'react';
 import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
 import './App.css';
 import Footer from './components/Footer';
-import Home from './components/Home';
-import AboutUs from './components/AboutUs';
-import ContactUs from './components/ContactUs';
+import Home from './pages/Home';
+import AboutUs from './pages/AboutUs';
+import ContactUs from './pages/ContactUs';
 import Logo from './img/bloodDonationLogo.png';
 
 
@@ -44,9 +44,10 @@ const App: React.FunctionComponent = () => {
           </ul>
         </nav>
         <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="/about" element={<AboutUs />} />
-          <Route path="/contact" element={<ContactUs />} />
+          <Route index element={<Home />} />
+          <Route path="/*" element={<Home />} />
+          <Route path="about" element={<AboutUs />} />
+          <Route path="contact" element={<ContactUs />} />
         </Routes>
       </Router>
       <Footer />

@@ -1,5 +1,5 @@
 import React from 'react';
-
+import { Link } from 'react-router-dom';
 interface CardProps {
     goto: string;
     title: string;
@@ -7,7 +7,7 @@ interface CardProps {
 }
 
 const Card: React.FunctionComponent<CardProps> = (props) => {
-    return (
+    return (<Link to={props.goto} >
         <div className='border-4 cursor-pointer hover:scale-105 hover:shadow-lg hover:shadow-red-400/50 rounded-lg'>
             <div className='bg-red-400  text-white font-semibold text-center p-4 text-2xl'>
                 <h2 >{props.title}</h2>
@@ -16,6 +16,7 @@ const Card: React.FunctionComponent<CardProps> = (props) => {
                 <h3>{props.description}</h3>
             </div>
         </div>
+    </Link>
     );
 };
 

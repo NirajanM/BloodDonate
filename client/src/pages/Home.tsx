@@ -1,27 +1,14 @@
 import React from 'react';
 import Background from '../img/bloodBag.png';
-import Card from './Card';
-import BDC from './BDC';
+import { Routes, Route } from 'react-router-dom';
+import BDC from '../components/BDC';
+import ThreeOptions from '../components/ThreeOptions';
+import FindDonor from '../components/FindDoner';
 interface IHomeProps {
 }
 
 const Home: React.FunctionComponent<IHomeProps> = (props) => {
-    const listArray = [{
-        goto: "/donor",
-        title: "Find a donor",
-        description: 'look for a blood donor from available list.'
-    },
-    {
-        goto: "/bloodBank",
-        title: "Blood bank",
-        description: 'check for nearby blood banks.'
-    },
-    {
-        goto: "/requests",
-        title: "Requests",
-        description: 'check for requests from people in need.'
-    }
-    ]
+
     return (
         <div className='container'>
             <div className="container flex my-4 justify-around">
@@ -35,13 +22,11 @@ const Home: React.FunctionComponent<IHomeProps> = (props) => {
                     }}
                 ></div>
             </div>
-            <section className='my-4 grid grid-cols-3 gap-10 my-16 px-8'>
-                {listArray.map((list) => {
-                    return (
-                        <Card goto={list.goto} title={list.title} description={list.description} />
-                    );
-                })}
-            </section>
+
+            <Routes>
+                <Route path="" element={<ThreeOptions />} />
+                <Route path='donor' element={<FindDonor />} />
+            </Routes>
             <BDC />
         </div>
     );
