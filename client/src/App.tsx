@@ -7,22 +7,9 @@ import AboutUs from './components/AboutUs';
 import ContactUs from './components/ContactUs';
 import Logo from './img/bloodDonationLogo.png';
 
-interface iAllPages {
-  home: React.FunctionComponent;
-  about: React.FunctionComponent;
-  contact: React.FunctionComponent;
-
-}
-
-const allPages: iAllPages = {
-  home: Home,
-  about: AboutUs,
-  contact: ContactUs
-}
 
 const App: React.FunctionComponent = () => {
   const [currentPage, setCurrentPage] = React.useState<string>("home");
-  const CurrentSection: React.FunctionComponent = allPages[currentPage as keyof typeof allPages];
   return (
     <>
       <Router>
@@ -62,9 +49,6 @@ const App: React.FunctionComponent = () => {
           <Route path="/contact" element={<ContactUs />} />
         </Routes>
       </Router>
-
-
-      <CurrentSection />
       <Footer />
     </>
   );
