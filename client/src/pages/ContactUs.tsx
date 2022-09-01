@@ -5,7 +5,7 @@ interface ContactUsProps {
 
 const ContactUs: React.FunctionComponent<ContactUsProps> = (props) => {
     return (
-        <div className='container h-screen text-center'>
+        <div className='h-screen text-center'>
             this is contact page
         </div>
     );

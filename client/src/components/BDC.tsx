@@ -24,13 +24,13 @@ const BDC: React.FunctionComponent = () => {
 
     ]
     return (
-        <section className='container mt-36'>
-            <div className='container flex flex-col bg-red-400 p-4 lg:p-12 text-white justify-center items-center'>
+        <section className=' mt-36'>
+            <div className='flex flex-col bg-red-400 p-4 lg:p-12 text-white justify-center items-center'>
                 <h2 className='font-semibold text-lg xl:text-3xl'>Want to donate blood right away?</h2>
                 <span className='text-sm xl:text-xl'>check <a className='cursor-pointer font-bold underline' href="https://nrcs.org/redcross_location/">redcross branch</a> near you.</span>
             </div>
             <h2 className='font-semibold text-slate-500 underline mt-28 mb-4 text-xl xl:text-3xl pl-8 text-left'>Some common Q&A's</h2>
-            <div className='container p-8 text-slate-600'>
+            <div className='p-8 text-slate-600'>
                 {arrayOfQandA.map((arrayData) => {
                     return (
                         <QandA question={arrayData.question} answer={arrayData.answer} />

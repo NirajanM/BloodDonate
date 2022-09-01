@@ -5,7 +5,7 @@ interface AboutUsProps {
 
 const AboutUs: React.FunctionComponent<AboutUsProps> = (props) => {
     return (
-        <div className='container h-screen text-center'>
+        <div className='h-screen text-center'>
             this is about page
         </div>
     );

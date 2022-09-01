@@ -13,7 +13,7 @@ const App: React.FunctionComponent = () => {
   return (
     <>
       <Router>
-        <nav className='container bg-red-400 h-20 text-white flex justify-end pr-1 md:pr-4 lg:pr-8 items-center'>
+        <nav className='bg-red-400 h-20 text-white flex justify-end pr-1 md:pr-4 lg:pr-8 items-center'>
           <div className='absolute left-6 top-2'>
             <Link to="/">
               <img src={Logo} className="w-16" alt="logo" onClick={() => {
