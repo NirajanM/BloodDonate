@@ -101,8 +101,8 @@ const App: React.FunctionComponent = () => {
           <Route path="about" element={<AboutUs />} />
           <Route path="contact" element={<ContactUs />} />
         </Routes>
+        <Footer />
       </Router>
-      <Footer />
     </>
   );
 };
