@@ -1,10 +1,10 @@
 import React from 'react';
 import { Routes, Route, Link } from "react-router-dom";
 
-interface IBLoodBankProps {
+interface IRequestsProps {
 }
 
-const BLoodBank: React.FunctionComponent<IBLoodBankProps> = (props) => {
+const Requests: React.FunctionComponent<IRequestsProps> = (props) => {
     return (
         <div className='border-4 md:m-4 m-12 py-8 rounded-lg'>
             <div className='flex justify-center'>
@@ -20,4 +20,5 @@ const BLoodBank: React.FunctionComponent<IBLoodBankProps> = (props) => {
     );
 };
 
-export default BLoodBank;
+export default Requests;
+
