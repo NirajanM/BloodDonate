@@ -17,7 +17,7 @@ const App: React.FunctionComponent = () => {
         <nav className="w-full bg-red-400 shadow">
           <div className="justify-between px-4 mx-auto md:items-center md:flex md:px-4 md:pr-8">
             <div>
-              <div className="flex items-center justify-between py-3 md:py-5 md:block">
+              <div className="flex items-center justify-between py-3 pl-1 md:py-5 md:block">
                 <Link to="/">
                   <img src={Logo} className="w-16" alt="logo" onClick={() => {
                     setCurrentPage("home");
