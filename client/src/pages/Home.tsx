@@ -4,6 +4,7 @@ import { Routes, Route } from 'react-router-dom';
 import BDC from '../components/BDC';
 import ThreeOptions from '../components/ThreeOptions';
 import FindDonor from '../components/FindDoner';
+import BloodBank from '../components/BloodBank';
 interface IHomeProps {
 }
 
@@ -26,6 +27,7 @@ const Home: React.FunctionComponent<IHomeProps> = (props) => {
             <Routes>
                 <Route path="" element={<ThreeOptions />} />
                 <Route path='donor/*' element={<FindDonor />} />
+                <Route path='bloodBank' element={<BloodBank />} />
             </Routes>
             <BDC />
         </div>
