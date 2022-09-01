@@ -27,21 +27,21 @@ const App: React.FunctionComponent = () => {
               onClick={() => {
                 setCurrentPage("home");
               }}
-              className={currentPage === "home" ? "scale-125 border rounded-sm p-1 bg-slake-200 font-black cursor-pointer hover:bg-slate-300" : "cursor-pointer hover:bg-slate-300 hover:rounded-sm"}
+              className={currentPage === "home" ? "scale-125 border rounded-sm p-1 bg-slake-200 font-black cursor-pointer hover:bg-red-500" : "cursor-pointer  hover:border-b-2"}
             ><Link to="/">Home</Link></li>
 
             <li
               onClick={() => {
                 setCurrentPage("about");
               }}
-              className={currentPage === "about" ? "scale-125 border rounded-sm p-1 bg-slake-200 font-black cursor-pointer hover:bg-slate-300" : "cursor-pointer hover:bg-slate-300 hover:rounded-sm"}
+              className={currentPage === "about" ? "scale-125 border rounded-sm p-1 bg-slake-200 font-black cursor-pointer hover:bg-red-500" : "cursor-pointer hover:border-b-2 "}
             ><Link to="/about">About Us</Link></li>
 
             <li
               onClick={() => {
                 setCurrentPage("contact");
               }}
-              className={currentPage === "contact" ? "scale-125 border rounded-sm p-1 bg-slake-200 font-black cursor-pointer hover:bg-slate-300" : "cursor-pointer hover:bg-slate-300 hover:rounded-sm"}
+              className={currentPage === "contact" ? "scale-125 border rounded-sm p-1 bg-slake-200 font-black cursor-pointer hover:bg-red-500" : "cursor-pointer  hover:border-b-2"}
             ><Link to="/contact">Contact Us</Link></li>
           </ul>
         </nav>
