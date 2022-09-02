@@ -1,7 +1,7 @@
 const express = require('express');
 const mongoose = require('mongoose');
 const app = express();
-const router = express.Router();
+const User = require("./models/User");
 require('dotenv').config();
 
 const port = process.env.PORT || 4000;
@@ -18,7 +18,18 @@ mongoose.connect(
         } else {
             console.log("mongodb is connected");
         }
-    });
+    }
+);
+
+app.get("/bgap", async (request, response) => {
+    const users = await User.find({});
+
+    try {
+        response.send(users);
+    } catch (error) {
+        response.status(500).send(error);
+    }
+});
 
 app.listen(port, function (req, res) {
 
