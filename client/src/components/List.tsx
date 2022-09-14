@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 import axios from 'axios';
 type User = {
@@ -42,12 +42,23 @@ const List: React.FunctionComponent = () => {
             }
         }
     }
-
+    getUsers();
     return (
         <>
-            <h1>{requestedGroup}</h1>
-            <h2>I will make call on database and show list here later after I do serverside coding and make restful api</h2>
-            {console.log(getUsers())}
+            <div className='grid text-center grid-cols-3'>
+                <div>Name</div>
+                <div>Gender</div>
+                <div>Blood Group</div>
+                {bloodDonerList && bloodDonerList.map((userDetail) => {
+                    return (
+                        <>
+                            <div>{userDetail.fname + " " + userDetail.mname + " " + userDetail.lname}</div>
+                            <div>{userDetail.gender}</div>
+                            <div>{userDetail.blood_group}</div>
+                        </>
+                    );
+                })}
+            </div>
         </>
     );
 };
