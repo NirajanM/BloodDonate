@@ -21,7 +21,7 @@ mongoose.connect(
     }
 );
 
-app.get("/list/:bg", async (request, response) => {
+app.get("/ninjacoder/:bg", async (request, response) => {
     const bloodGroup = request.params.bg.toUpperCase();
     console.log(bloodGroup);
     const users = await User.find({ blood_group: bloodGroup }, { _id: 1, fname: 1, mname: 1, lname: 1, gender: 1, blood_group: 1 });
