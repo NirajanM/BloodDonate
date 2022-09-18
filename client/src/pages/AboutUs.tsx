@@ -10,7 +10,7 @@ const AboutUs: React.FunctionComponent<AboutUsProps> = (props) => {
                 This site was created to provide genuine service to public for free so that risk of death from scarcity of blood of certain group can be reduced to minimum and now it's your turn to be someone's hero, register and participate in this program of saving life and tell your friends to do the same because more data we have equals to more lifes saved in time.
             </header>
             <button className='p-1 px-4 bg-red-500 text-white border-4 cursor-pointer hover:scale-105 hover:shadow-lg hover:bg-red-600 hover:shadow-red-400/50 rounded-lg my-8'>register</button>
-            <div className='text-sm text-slate-500 sm:text-md md:text-lg'><a className='font-bold hover:text-black' href="https://www.linkedin.com/in/nirajan-malla-36a111210/">Nirajan Malla</a>, a web-developer started this as a side project with an objective to help at least one people in need. You can find more about him <a className='font-bold hover:text-black' href="https://www.nirajanmalla.com.np">here</a>. </div>
+            <div className='text-sm text-slate-500 sm:text-md md:text-lg'><a className='font-bold hover:text-black' href="https://www.linkedin.com/in/nirajan-malla-36a111210/">Nirajan Malla</a>, a web-developer created this as a side project with an objective to help at least one people in need. You can find more about him <a className='font-bold hover:text-black' href="https://www.nirajanmalla.com.np">here</a>. </div>
         </div>
     );
 };
