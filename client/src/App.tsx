@@ -23,7 +23,6 @@ const App: React.FunctionComponent = () => {
                     setCurrentPage("home");
                   }} />
                 </Link>
-
                 <div className="md:hidden">
                   <button
                     className="p-2 text-white rounded-md outline-none focus:border-white focus:border"
@@ -90,6 +89,9 @@ const App: React.FunctionComponent = () => {
                     }}
                     className={currentPage === "contact" ? "md:scale-125 border rounded-sm p-1 bg-slake-200 font-black cursor-pointer hover:bg-red-500" : "cursor-pointer  hover:border-b-2"}
                   ><Link to="/contact">Contact Us</Link></li>
+                  <li>
+                    <button className='px-4 p-1 text-lg bg-red-500 text-white border-1 cursor-pointer hover:scale-105 hover:shadow-lg hover:bg-slate-600 hover:shadow-red-400/50 rounded-lg my-8'>register</button>
+                  </li>
                 </ul>
               </div>
             </div>

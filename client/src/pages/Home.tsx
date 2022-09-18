@@ -14,8 +14,8 @@ const Home: React.FunctionComponent<IHomeProps> = (props) => {
     return (
         <div >
             <div className=" flex my-4 pr-4 md:pr-0 justify-around">
-                <div className='text-left  text-slate-600 py-10 sm:py-20 md:py-28 lg:py-40 text-md sm:text-3xl font-bold md:text-4xl lg:text-5xl px-8 lg:px-8'>
-                    <h1>The gift of blood is a gift to someone’s life.</h1>
+                <div className='text-left py-10 sm:py-20 md:py-28 lg:py-40 px-8 lg:px-8'>
+                    <h1 className='text-slate-600 text-md sm:text-3xl font-bold md:text-4xl lg:text-5xl '>The gift of blood is a gift to someone’s life.</h1>
                 </div>
                 <div
                     className='bg-contain bg-center bg-no-repeat w-1/3 sm:w-3/12 md:w-5/12 lg:w-7/12'
@@ -24,7 +24,6 @@ const Home: React.FunctionComponent<IHomeProps> = (props) => {
                     }}
                 ></div>
             </div>
-
             <Routes>
                 <Route path="" element={<ThreeOptions />} />
                 <Route path='donor/*' element={<FindDonor />} />
