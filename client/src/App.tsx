@@ -12,6 +12,9 @@ import Logo from './img/bloodDonationLogo.png';
 const App: React.FunctionComponent = () => {
   const [currentPage, setCurrentPage] = React.useState<string>("home");
   const [navbar, setNavbar] = React.useState<boolean>(false);
+  const changeActiveness = (currentpage: string) => {
+    setCurrentPage(currentpage);
+  }
   return (
     <>
       <Router>
@@ -98,8 +101,12 @@ const App: React.FunctionComponent = () => {
                   </Link>
 
                   <Link to="/register">
-                    <li>
-                      <button className='px-4 p-1 text-lg bg-red-500 text-white border-1 cursor-pointer hover:scale-105 hover:shadow-lg hover:bg-slate-600 hover:shadow-red-400/50 rounded-lg my-8'>register</button>
+                    <li
+                      onClick={() => {
+                        setCurrentPage("register");
+                      }}
+                    >
+                      <button className={currentPage === "register" ? "px-4 p-1 text-lg bg-slate-600 text-white border-1 cursor-pointer hover:scale-105 hover:shadow-lg hover:bg-slate-600 hover:shadow-red-400/50 rounded-lg my-8" : "px-4 p-1 text-lg bg-red-500 text-white border-1 cursor-pointer hover:scale-105 hover:shadow-lg hover:bg-slate-600 hover:shadow-red-400/50 rounded-lg my-8"}>register</button>
                     </li>
                   </Link>
                 </ul>
