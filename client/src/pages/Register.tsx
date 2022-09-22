@@ -14,8 +14,8 @@ const Register: React.FunctionComponent<IRegisterProps> = (props) => {
                     <p className="text-black mt-1">for a chance to be a real life hero</p>
                 </div>
             </div>
-            <div className="flex w-1/2 justify-center items-center">
-                <form className='text-center '>
+            <div className="flex w-full md:w-1/2 justify-center items-center">
+                <form className='text-center'>
                     <h1 className="text-red-400 font-bold text-2xl mb-1">Please Be Genuine!</h1>
                     <p className="text-sm font-normal text-gray-600 mb-7">we don't want fake details</p>
                     <input className="border-2 py-2 px-3 rounded-2xl mb-4 block text-center outline-none" type="text" placeholder="your name" />
