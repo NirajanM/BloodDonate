@@ -5,6 +5,7 @@ import Footer from './components/Footer';
 import Home from './pages/Home';
 import AboutUs from './pages/AboutUs';
 import ContactUs from './pages/ContactUs';
+import Register from './pages/Register';
 import Logo from './img/bloodDonationLogo.png';
 
 
@@ -69,29 +70,38 @@ const App: React.FunctionComponent = () => {
                   }`}
               >
                 <ul className="items-center justify-center text-center text-white space-y-8 md:flex md:space-x-6 md:space-y-0">
-                  <li
-                    onClick={() => {
-                      setCurrentPage("home");
-                    }}
-                    className={currentPage === "home" ? "md:scale-125 border rounded-sm p-1 bg-slake-200 font-black cursor-pointer hover:bg-red-500" : "cursor-pointer  hover:border-b-2"}
-                  ><Link to="/">Home</Link></li>
+                  <Link to="/">
+                    <li
+                      onClick={() => {
+                        setCurrentPage("home");
+                      }}
+                      className={currentPage === "home" ? "md:scale-125 border rounded-sm p-1 bg-slake-200 font-black cursor-pointer hover:bg-red-500" : "cursor-pointer  hover:border-b-2"}
+                    >Home</li>
+                  </Link>
 
-                  <li
-                    onClick={() => {
-                      setCurrentPage("about");
-                    }}
-                    className={currentPage === "about" ? "md:scale-125 border rounded-sm p-1 bg-slake-200 font-black cursor-pointer hover:bg-red-500" : "cursor-pointer hover:border-b-2 "}
-                  ><Link to="/about">About Us</Link></li>
+                  <Link to="/about">
+                    <li
+                      onClick={() => {
+                        setCurrentPage("about");
+                      }}
+                      className={currentPage === "about" ? "md:scale-125 border rounded-sm p-1 bg-slake-200 font-black cursor-pointer hover:bg-red-500" : "cursor-pointer hover:border-b-2 "}
+                    >About Us</li>
+                  </Link>
 
-                  <li
-                    onClick={() => {
-                      setCurrentPage("contact");
-                    }}
-                    className={currentPage === "contact" ? "md:scale-125 border rounded-sm p-1 bg-slake-200 font-black cursor-pointer hover:bg-red-500" : "cursor-pointer  hover:border-b-2"}
-                  ><Link to="/contact">Contact Us</Link></li>
-                  <li>
-                    <button className='px-4 p-1 text-lg bg-red-500 text-white border-1 cursor-pointer hover:scale-105 hover:shadow-lg hover:bg-slate-600 hover:shadow-red-400/50 rounded-lg my-8'>register</button>
-                  </li>
+                  <Link to="/contact">
+                    <li
+                      onClick={() => {
+                        setCurrentPage("contact");
+                      }}
+                      className={currentPage === "contact" ? "md:scale-125 border rounded-sm p-1 bg-slake-200 font-black cursor-pointer hover:bg-red-500" : "cursor-pointer  hover:border-b-2"}
+                    >Contact Us</li>
+                  </Link>
+
+                  <Link to="/register">
+                    <li>
+                      <button className='px-4 p-1 text-lg bg-red-500 text-white border-1 cursor-pointer hover:scale-105 hover:shadow-lg hover:bg-slate-600 hover:shadow-red-400/50 rounded-lg my-8'>register</button>
+                    </li>
+                  </Link>
                 </ul>
               </div>
             </div>
@@ -102,6 +112,7 @@ const App: React.FunctionComponent = () => {
           <Route path="/*" element={<Home />} />
           <Route path="about" element={<AboutUs />} />
           <Route path="contact" element={<ContactUs />} />
+          <Route path="register" element={<Register />} />
         </Routes>
         <Footer />
       </Router>
