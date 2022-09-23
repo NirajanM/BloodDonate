@@ -1,10 +1,45 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { Routes, Route, Link } from "react-router-dom";
-
+import axios from 'axios';
 interface IBLoodBankProps {
 }
+type tBloodBank = {
+    _id: string;
+    name: string;
+    address: string;
+    contact: [
+        string
+    ];
+};
+const BloodBank: React.FunctionComponent<IBLoodBankProps> = (props) => {
+    const [bloodBank, setBloodBank] = useState<tBloodBank[] | null>(null);
+    async function getBloodBank() {
+        try {
+            const { data, status } = await axios.get<tBloodBank[]>(
+                "http://localhost:4000/daiheroxa",
+                {
+                    headers: {
+                        Accept: 'application/json',
+                    },
+                },
+            );
+            const receivedData: tBloodBank[] = (data);
+            setBloodBank(receivedData);
+            console.log('response status is: ', status);
 
-const BLoodBank: React.FunctionComponent<IBLoodBankProps> = (props) => {
+        } catch (error) {
+            if (axios.isAxiosError(error)) {
+                console.log('error message: ', error.message);
+                return error.message;
+            } else {
+                console.log('unexpected error: ', error);
+                return 'An unexpected error occurred';
+            }
+        }
+    };
+    useEffect(() => {
+        getBloodBank();
+    }, []);
     return (
         <div className='border-t-4 border-b-4 md:m-4 py-8'>
             <div className='flex justify-center'>
@@ -37,12 +72,20 @@ const BLoodBank: React.FunctionComponent<IBLoodBankProps> = (props) => {
                     </div>
                 </div>
             </div>
-            <Routes>
-                <Route path=':requestedGroup' element={<h1>hello</h1>} />
-            </Routes>
+            <div className='grid md:grid-cols-3 mt-8 gap-y-8 gap-x-2'>
+                {bloodBank?.map((bank) => {
+                    return (
+                        <>
+                            <span>{bank.name}</span>
+                            <span>{bank.address}</span>
+                            <span>{bank.contact.join()}</span>
+                        </>
+                    );
+                })}
+            </div>
         </div>
     );
 };
 
-export default BLoodBank;
+export default BloodBank;
 

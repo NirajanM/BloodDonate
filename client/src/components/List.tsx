@@ -42,7 +42,9 @@ const List: React.FunctionComponent = () => {
             }
         }
     }
-    getUsers();
+    useEffect(() => {
+        getUsers();
+    }, [requestedGroup]);
     return (
         <>
             <div className='grid text-center grid-cols-3'>
