@@ -13,6 +13,8 @@ type tBloodBank = {
 };
 const BloodBank: React.FunctionComponent<IBLoodBankProps> = (props) => {
     const [bloodBank, setBloodBank] = useState<tBloodBank[] | null>(null);
+    const [search, setSearch] = useState<string>("");
+    const [foundBanks, setFoundBanks] = useState<tBloodBank[] | null>(null);
     async function getBloodBank() {
         try {
             const { data, status } = await axios.get<tBloodBank[]>(
@@ -25,6 +27,7 @@ const BloodBank: React.FunctionComponent<IBLoodBankProps> = (props) => {
             );
             const receivedData: tBloodBank[] = (data);
             setBloodBank(receivedData);
+            setFoundBanks(receivedData);
             console.log('response status is: ', status);
 
         } catch (error) {
@@ -40,6 +43,11 @@ const BloodBank: React.FunctionComponent<IBLoodBankProps> = (props) => {
     useEffect(() => {
         getBloodBank();
     }, []);
+
+    useEffect(() => {
+        let filtered: tBloodBank[] | null = [];
+
+    }, [search]);
     return (
         <div className='border-t-4 border-b-4 md:m-4 py-8'>
             <div className='flex justify-center'>
@@ -68,12 +76,17 @@ const BloodBank: React.FunctionComponent<IBLoodBankProps> = (props) => {
                             type="text"
                             placeholder="location"
                             className="w-full py-3 pl-12 pr-4 text-gray-500 border rounded-md outline-none bg-gray-50 focus:bg-white focus:border-indigo-600"
+                            value={search}
+                            onChange={(e: React.FormEvent<HTMLInputElement>) => {
+                                const newValue: string = e.currentTarget.value.toLowerCase();
+                                setSearch(newValue);
+                            }}
                         />
                     </div>
                 </div>
             </div>
             <div className='grid md:grid-cols-3 mt-8 gap-y-8 gap-x-2'>
-                {bloodBank?.map((bank) => {
+                {foundBanks?.map((bank) => {
                     return (
                         <>
                             <span>{bank.name}</span>
