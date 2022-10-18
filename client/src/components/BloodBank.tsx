@@ -46,8 +46,10 @@ const BloodBank: React.FunctionComponent<IBLoodBankProps> = (props) => {
 
     useEffect(() => {
         let filtered: tBloodBank[] | null = [];
-
+        filtered = bloodBank && bloodBank.filter((item) => { return item.address.includes(search) });
+        setFoundBanks(filtered);
     }, [search]);
+
     return (
         <div className='border-t-4 border-b-4 md:m-4 py-8'>
             <div className='flex justify-center'>
@@ -78,8 +80,7 @@ const BloodBank: React.FunctionComponent<IBLoodBankProps> = (props) => {
                             className="w-full py-3 pl-12 pr-4 text-gray-500 border rounded-md outline-none bg-gray-50 focus:bg-white focus:border-indigo-600"
                             value={search}
                             onChange={(e: React.FormEvent<HTMLInputElement>) => {
-                                const newValue: string = e.currentTarget.value.toLowerCase();
-                                setSearch(newValue);
+                                setSearch(e.currentTarget.value);
                             }}
                         />
                     </div>
