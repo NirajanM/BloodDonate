@@ -46,8 +46,9 @@ const BloodBank: React.FunctionComponent<IBLoodBankProps> = (props) => {
 
     useEffect(() => {
         let filtered: tBloodBank[] | null = [];
-        filtered = bloodBank && bloodBank.filter((item) => { return item.address.includes(search) });
+        filtered = bloodBank && bloodBank.filter((item) => { return item.address.toLowerCase().includes(search.toLowerCase()) });
         setFoundBanks(filtered);
+        console.log(foundBanks);
     }, [search]);
 
     return (
@@ -97,6 +98,9 @@ const BloodBank: React.FunctionComponent<IBLoodBankProps> = (props) => {
                     );
                 })}
             </div>
+            {
+                (foundBanks?.length === 0) && <p className='block text-center'>No data found...</p>
+            }
         </div>
     );
 };
