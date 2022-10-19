@@ -27,7 +27,7 @@ const BDC: React.FunctionComponent = () => {
         <section className=' mt-36'>
             <div className='flex flex-col bg-red-400 p-4 lg:p-12 text-white justify-center items-center'>
                 <h2 className='font-semibold text-lg xl:text-3xl'>Want to donate blood right away?</h2>
-                <span className='text-sm xl:text-xl'>check <a className='cursor-pointer font-bold underline' href="https://nrcs.org/redcross_location/">redcross branch</a> near you.</span>
+                <span className='text-sm xl:text-xl'>To check redcross branch near you - <a className='cursor-pointer font-bold underline' href="https://nrcs.org/redcross_location/">click here</a></span>
             </div>
             <h2 className=' text-slate-400 font-bold border-b-2 border-t-2 mt-28 mb-4 text-xl xl:text-3xl text-center'>Some common Q&A's</h2>
             <div className='p-8 text-slate-600'>
