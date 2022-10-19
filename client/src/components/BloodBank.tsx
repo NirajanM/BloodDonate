@@ -87,20 +87,26 @@ const BloodBank: React.FunctionComponent<IBLoodBankProps> = (props) => {
                     </div>
                 </div>
             </div>
-            <div className='grid md:grid-cols-3 mt-8 gap-y-8 gap-x-2'>
+            <div >
+                {
+                    (foundBanks?.length === 0) ? <p className='block bg-slate-100 text-center p-2 mt-8 '>No data found...</p> : <div className='md:grid bg-slate-50 p-2 lg:text-lg font-semibold text-red-600 text-center hidden md:grid-cols-3 mt-8 gap-y-8 gap-x-2'>
+                        <span className=''>Name</span>
+                        <span>Address</span>
+                        <span>Contact</span>
+                    </div>
+                }
                 {foundBanks?.map((bank) => {
                     return (
                         <>
-                            <span>{bank.name}</span>
-                            <span>{bank.address}</span>
-                            <span>{bank.contact.join()}</span>
+                            <div className='grid bg-slate-100 lg:text-lg text-center p-2 md:grid-cols-3 mt-8 gap-y-8 gap-x-2'>
+                                <span>{bank.name}</span>
+                                <span>{bank.address}</span>
+                                <span>{bank.contact.map((num) => { return (<span className='mx-1 rounded-xl bg-slate-200 py-1 px-3'><a href={"tel:" + num}>{num}</a></span>) })}</span>
+                            </div>
                         </>
                     );
                 })}
             </div>
-            {
-                (foundBanks?.length === 0) && <p className='block text-center'>No data found...</p>
-            }
         </div>
     );
 };
