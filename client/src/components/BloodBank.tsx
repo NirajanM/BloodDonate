@@ -18,7 +18,7 @@ const BloodBank: React.FunctionComponent<IBLoodBankProps> = (props) => {
     async function getBloodBank() {
         try {
             const { data, status } = await axios.get<tBloodBank[]>(
-                "http://localhost:4000/daiheroxa",
+                "http://192.168.1.68:4000/daiheroxa",
                 {
                     headers: {
                         Accept: 'application/json',
@@ -89,19 +89,21 @@ const BloodBank: React.FunctionComponent<IBLoodBankProps> = (props) => {
             </div>
             <div >
                 {
-                    (foundBanks?.length === 0) ? <p className='block bg-slate-100 text-center p-2 mt-8 '>No data found...</p> : <div className='md:grid bg-slate-50 p-2 lg:text-lg font-semibold text-red-600 text-center hidden md:grid-cols-3 mt-8 gap-y-8 gap-x-2'>
-                        <span className=''>Name</span>
-                        <span>Address</span>
-                        <span>Contact</span>
-                    </div>
+                    (foundBanks?.length === 0) ? <p className='block bg-slate-100 text-center p-2 mt-8 '>No data found...</p> : <div>
+                        <div className='text-red-600 text-center mt-8 md:hidden'>(Contacts are clickable)</div>
+                        <div className='md:grid bg-slate-50 p-2 lg:text-lg font-semibold text-red-600 text-center hidden md:grid-cols-3 mt-8 gap-y-8 gap-x-2'>
+                            <span className=''>Name</span>
+                            <span>Address</span>
+                            <span>Contact(clickable)</span>
+                        </div></div>
                 }
                 {foundBanks?.map((bank) => {
                     return (
                         <>
-                            <div className='grid bg-slate-100 lg:text-lg text-center p-2 md:grid-cols-3 mt-8 gap-y-8 gap-x-2'>
-                                <span>{bank.name}</span>
+                            <div className='grid bg-slate-100 lg:text-lg text-center items-center p-2 md:grid-cols-3 mt-8 gap-y-8 gap-x-2'>
+                                <span className='align-middle'>{bank.name}</span>
                                 <span>{bank.address}</span>
-                                <span>{bank.contact.map((num) => { return (<span className='mx-1 rounded-xl bg-slate-200 py-1 px-3'><a href={"tel:" + num}>{num}</a></span>) })}</span>
+                                <span>{bank.contact.map((num) => { return (<a href={"tel:" + num} ><span className='m-1 block rounded-xl bg-slate-200 py-1 px-3 hover:bg-red-400 hover:text-white'>{num}</span></a>) })}</span>
                             </div>
                         </>
                     );
