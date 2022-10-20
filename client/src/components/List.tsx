@@ -48,7 +48,17 @@ const List: React.FunctionComponent = () => {
     }, [requestedGroup]);
     return (
         <>
-            <div className='md:grid bg-slate-50 p-2 lg:text-lg font-semibold text-red-600 text-center grid-cols-3 mt-8 gap-y-8 gap-x-2'>
+            {bloodDonerList && bloodDonerList.map((userDetail) => {
+                return (
+                    <>
+                        <div className='grid grid-cols-1 justify-items-center items-center'>
+                            <span className='text-red-500 lg:text-lg text-center font-semibold p-2'>showing result for : {userDetail.blood_group}</span>
+                            <span className='text-slate-400 lg:text-lg text-center font-medium p-2'>(click any and directly ask for their help)</span>
+                        </div>
+                    </>
+                );
+            })}
+            <div className='md:grid border-y-2 p-2 lg:text-lg font-semibold text-red-600 text-center grid-cols-3 mt-8 gap-y-8 gap-x-2'>
                 <span className=''>Name</span>
                 <span>Gender</span>
                 <span>Blood Group</span>
@@ -57,11 +67,12 @@ const List: React.FunctionComponent = () => {
             {bloodDonerList && bloodDonerList.map((userDetail) => {
                 return (
                     <>
-                        <div className='grid bg-slate-100 lg:text-lg text-center items-center p-2 md:grid-cols-3 mt-8 gap-y-8 gap-x-2'>
-                            <span className='align-middle'>{userDetail.name}</span>
-                            <span>{userDetail.gender}</span>
-                            <span className='m-1 block rounded-xl bg-slate-200 py-1 px-3 hover:bg-red-400 hover:text-white'>{userDetail.address}</span>
-                        </div>
+                        <a href="#" className='grid bg-slate-100 lg:text-lg text-center text-red-900 items-center hover:shadow-lg hover:bg-slate-600 hover:shadow-blue-400/50 hover:text-white rounded-xl p-2 md:grid-cols-3 mt-8 gap-y-8 gap-x-2'>
+                            <span >{userDetail.name}</span>
+                            <span >{userDetail.gender}</span>
+                            <span >{userDetail.address}</span>
+                            {/* hover:bg-red-400 hover:text-white */}
+                        </a>
                     </>
                 );
             })}
