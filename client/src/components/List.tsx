@@ -3,11 +3,12 @@ import { useParams } from 'react-router-dom';
 import axios from 'axios';
 type User = {
     _id: string;
-    fname: string;
-    mname: string;
-    lname: string;
+    name: string;
     gender: string;
     blood_group: string;
+    contact: string;
+    address: string;
+    email: string;
 };
 
 const List: React.FunctionComponent = () => {
@@ -47,20 +48,23 @@ const List: React.FunctionComponent = () => {
     }, [requestedGroup]);
     return (
         <>
-            <div className='grid text-center grid-cols-3'>
-                <div>Name</div>
-                <div>Gender</div>
-                <div>Blood Group</div>
-                {bloodDonerList && bloodDonerList.map((userDetail) => {
-                    return (
-                        <>
-                            <div>{userDetail.fname + " " + userDetail.mname + " " + userDetail.lname}</div>
-                            <div>{userDetail.gender}</div>
-                            <div>{userDetail.blood_group}</div>
-                        </>
-                    );
-                })}
+            <div className='md:grid bg-slate-50 p-2 lg:text-lg font-semibold text-red-600 text-center grid-cols-3 mt-8 gap-y-8 gap-x-2'>
+                <span className=''>Name</span>
+                <span>Gender</span>
+                <span>Blood Group</span>
             </div>
+
+            {bloodDonerList && bloodDonerList.map((userDetail) => {
+                return (
+                    <>
+                        <div className='grid bg-slate-100 lg:text-lg text-center items-center p-2 md:grid-cols-3 mt-8 gap-y-8 gap-x-2'>
+                            <span className='align-middle'>{userDetail.name}</span>
+                            <span>{userDetail.gender}</span>
+                            <span className='m-1 block rounded-xl bg-slate-200 py-1 px-3 hover:bg-red-400 hover:text-white'>{userDetail.address}</span>
+                        </div>
+                    </>
+                );
+            })}
         </>
     );
 };

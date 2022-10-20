@@ -6,6 +6,40 @@ let userSchema = new Schema(
         _id: {
             type: String,
         },
+        name: {
+            type: String,
+        },
+        gender: {
+            type: String,
+        },
+        birthyear: {
+            type: String,
+        },
+        blood_group: {
+            type: String,
+        },
+        phone: {
+            type: String,
+        },
+        address: {
+            type: String,
+        },
+        password: {
+            type: String,
+        }
+    }
+);
+
+let User = mongoose.model("user", userSchema);
+
+module.exports = User;
+
+/*
+old module
+{
+        _id: {
+            type: String,
+        },
         id: {
             type: Number,
         },
@@ -117,8 +151,4 @@ let userSchema = new Schema(
 
     },
     { timestamps: true }
-);
-
-let User = mongoose.model("user", userSchema);
-
-module.exports = User;
+*/

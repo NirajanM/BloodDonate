@@ -27,7 +27,7 @@ app.use(cors({ origin: true, credentials: true }));
 
 app.get("/ninjacoder/:bg", async (request, response) => {
     const bloodGroup = request.params.bg.toUpperCase();
-    const users = await User.find({ blood_group: bloodGroup }, { _id: 1, fname: 1, mname: 1, lname: 1, gender: 1, blood_group: 1 });
+    const users = await User.find({ blood_group: bloodGroup }, { _id: 1, name: 1, birthyear: 1, address: 1, gender: 1, blood_group: 1, contact: 1 });
 
     try {
         response.send(users);
