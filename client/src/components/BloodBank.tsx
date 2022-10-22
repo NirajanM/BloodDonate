@@ -18,7 +18,7 @@ const BloodBank: React.FunctionComponent<IBLoodBankProps> = (props) => {
     async function getBloodBank() {
         try {
             const { data, status } = await axios.get<tBloodBank[]>(
-                "http://192.168.1.68:4000/daiheroxa",
+                "http://localhost:4000/daiheroxa",
                 {
                     headers: {
                         Accept: 'application/json',

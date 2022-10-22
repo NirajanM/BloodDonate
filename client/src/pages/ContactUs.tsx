@@ -1,19 +1,51 @@
 import React, { useState } from 'react';
+import axios from 'axios';
 
 interface ContactUsProps {
 }
-
+type tReview = {
+    name: string;
+    email: string;
+    message: string;
+};
 const ContactUs: React.FunctionComponent<ContactUsProps> = (props) => {
     const [name, setName] = useState<string>("");
     const [email, setEmail] = useState<string>("");
     const [message, setMessage] = useState<string>("");
-    let makeSendRequest = () => {
-        console.log(name, email, message);
-        setName("");
-        setEmail("");
-        setMessage("");
-        alert("your message submitted successfully, thank you for contacting us");
+
+    async function makeSendRequest() {
+        try {
+            const { data } = await axios.post<tReview>(
+                'http://localhost:4000/review',
+                { name, email, message },
+                {
+                    headers: {
+                        'Content-Type': 'application/json',
+                        Accept: 'application/json',
+                    },
+                },
+            );
+
+            console.log(JSON.stringify(data, null, 4));
+            console.log(name, email, message);
+            setName("");
+            setEmail("");
+            setMessage("");
+            alert("your message submitted successfully, thank you for contacting us");
+
+        } catch (error) {
+            if (axios.isAxiosError(error)) {
+                console.log('error message: ', error.message);
+                // 👇️ error: AxiosError<any, any>
+                return error.message;
+            } else {
+                console.log('unexpected error: ', error);
+                return 'An unexpected error occurred';
+            }
+        }
     }
+
+
     return (
         <div className='h-screen flex items-center justify-center text-center px-4'>
             <form className="w-full max-w-3xl">
