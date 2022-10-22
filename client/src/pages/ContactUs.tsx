@@ -13,36 +13,22 @@ const ContactUs: React.FunctionComponent<ContactUsProps> = (props) => {
     const [email, setEmail] = useState<string>("");
     const [message, setMessage] = useState<string>("");
 
-    async function makeSendRequest() {
-        try {
-            const { data } = await axios.post<tReview>(
-                'http://localhost:4000/review',
-                { name, email, message },
-                {
-                    headers: {
-                        'Content-Type': 'application/json',
-                        Accept: 'application/json',
-                    },
-                },
-            );
 
-            console.log(JSON.stringify(data, null, 4));
-            console.log(name, email, message);
-            setName("");
-            setEmail("");
-            setMessage("");
-            alert("your message submitted successfully, thank you for contacting us");
 
-        } catch (error) {
-            if (axios.isAxiosError(error)) {
-                console.log('error message: ', error.message);
-                // 👇️ error: AxiosError<any, any>
-                return error.message;
-            } else {
-                console.log('unexpected error: ', error);
-                return 'An unexpected error occurred';
-            }
-        }
+    let makeSendRequest = () => {
+        axios.post<tReview>(
+            'http://localhost:4000/review',
+            { name, email, message }
+        ).then(
+            (res) => {
+                console.log(res);
+                console.log(name, email, message);
+                setName("");
+                setEmail("");
+                setMessage("");
+                alert("your message submitted successfully, thank you for contacting us");
+            });
+
     }
 
 

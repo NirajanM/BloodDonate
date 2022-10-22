@@ -3,6 +3,7 @@ const mongoose = require('mongoose');
 const Bloodbank = require('./models/Bloodbank');
 const app = express();
 const User = require("./models/User");
+const Review = require("./models/Review");
 require('dotenv').config();
 const cors = require('cors');
 
@@ -43,6 +44,22 @@ app.get("/daiheroxa", async (req, res) => {
     } catch (error) {
         res.status(500).send(error);
     }
+})
+app.post("/review", express.json(), async (req, res) => {
+    const newReview = new Review({
+        name: req.body.name,
+        email: req.body.email,
+        message: req.body.message
+    });
+    newReview.save((err) => {
+        if (err) {
+            console.log(err);
+        }
+        else {
+            console.log("sucess");
+        }
+    });
+    res.send("success");
 })
 
 app.listen(port, function (req, res) {
