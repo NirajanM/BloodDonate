@@ -24,7 +24,7 @@ const Redcross: React.FunctionComponent<IRequestsProps> = (props) => {
     async function getBloodBank() {
         try {
             const { data, status } = await axios.get<tRedcross[]>(
-                "http://localhost:4000/redcross",
+                "http://localhost:4000/redcrossinfo",
                 {
                     headers: {
                         Accept: 'application/json',
@@ -97,14 +97,18 @@ const Redcross: React.FunctionComponent<IRequestsProps> = (props) => {
                 {
                     (foundBanks?.length === 0) ? <p className='block bg-slate-100 text-center p-2 mt-8 '>No data found...</p> : null
                 }
-                <div className='grid grid-col-1 md:grid-col-3'>
+                <div className='grid grid-cols-1 md:grid-cols-3'>
                     {foundBanks?.map((bank) => {
                         return (
                             <>
-                                <div className='flex flex-col'>
+                                <div className='flex flex-col p-8'>
                                     <span className='font-semibold text-lg'>{bank.Name}</span>
-                                    <span>{bank.Address}</span>
-                                    <span>{bank.Phone.map((num) => { return (<a href={"tel:" + num} ><span className='m-1 block rounded-xl bg-slate-200 py-1 px-3 hover:bg-red-400 hover:text-white'>{num}</span></a>) })}</span>
+                                    <span>address:{bank.Address}</span>
+                                    <span>province:{bank.Province}</span>
+                                    <span>District:{bank.District}</span>
+                                    <span>Phone:{bank.Phone.map((num) => { return (<a href={"tel:" + num} ><span className='m-1 block rounded-xl bg-slate-200 py-1 px-3 hover:bg-red-400 hover:text-white'>{num}</span></a>) })}</span>
+                                    <span>{bank.Fax?.map((num) => { return (<a href={"tel:" + num} ><span className='m-1 block rounded-xl bg-slate-200 py-1 px-3 hover:bg-red-400 hover:text-white'>{num}</span></a>) })}</span>
+                                    <span>{bank.Email?.map((num) => { return (<a href={"mailto:" + num} ><span className='m-1 block rounded-xl bg-slate-200 py-1 px-3 hover:bg-red-400 hover:text-white'>{num}</span></a>) })}</span>
                                 </div>
                             </>
                         );

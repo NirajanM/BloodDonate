@@ -4,6 +4,7 @@ const Bloodbank = require('./models/Bloodbank');
 const app = express();
 const User = require("./models/User");
 const Review = require("./models/Review");
+const Organization = require("./models/Organization");
 require('dotenv').config();
 const cors = require('cors');
 
@@ -45,6 +46,16 @@ app.get("/daiheroxa", async (req, res) => {
         res.status(500).send(error);
     }
 })
+
+app.get("/redcrossinfo", async (req, res) => {
+    const redcross = await Organization.find({});
+    try {
+        res.send(redcross);
+    } catch (error) {
+        res.status(500).send(error);
+    }
+})
+
 app.post("/review", express.json(), async (req, res) => {
     const newReview = new Review({
         name: req.body.name,
