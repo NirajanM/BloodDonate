@@ -5,7 +5,7 @@ import BDC from '../components/BDC';
 import ThreeOptions from '../components/ThreeOptions';
 import FindDonor from '../components/FindDoner';
 import BloodBank from '../components/BloodBank';
-import Requests from '../components/Requests';
+import Redcross from '../components/Redcross';
 interface IHomeProps {
 }
 
@@ -28,7 +28,7 @@ const Home: React.FunctionComponent<IHomeProps> = (props) => {
                 <Route path="" element={<ThreeOptions />} />
                 <Route path='donor/*' element={<FindDonor />} />
                 <Route path='bloodBank' element={<BloodBank />} />
-                <Route path='requests' element={<Requests />} />
+                <Route path='redcrossinfo' element={<Redcross />} />
             </Routes>
             <BDC />
         </div>

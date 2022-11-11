@@ -61,7 +61,7 @@ const List: React.FunctionComponent = () => {
             <div className='md:grid border-y-2 p-2 lg:text-lg font-semibold text-red-600 text-center grid-cols-3 mt-8 gap-y-8 gap-x-2'>
                 <span className=''>Name</span>
                 <span>Gender</span>
-                <span>Blood Group</span>
+                <span>Address</span>
             </div>
 
             {bloodDonerList && bloodDonerList.map((userDetail) => {

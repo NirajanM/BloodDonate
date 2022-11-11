@@ -13,9 +13,9 @@ const ThreeOptions: React.FunctionComponent = () => {
         description: 'check for nearby blood banks.'
     },
     {
-        goto: "/requests",
-        title: "Requests",
-        description: 'check for requests from people in need.'
+        goto: "/redcrossinfo",
+        title: "Redcross",
+        description: 'check for redcross community around you.'
     }
     ]
     return (<section className='my-4 grid grid-cols-1 lg:grid-cols-3 gap-10 my-16 px-8'>
