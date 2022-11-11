@@ -27,7 +27,6 @@ const ContactUs: React.FunctionComponent<ContactUsProps> = (props) => {
         ).then(
             (res) => {
                 console.log(res);
-                console.log(name, email, message);
                 setName("");
                 setEmail("");
                 setMessage("");
@@ -65,7 +64,7 @@ const ContactUs: React.FunctionComponent<ContactUsProps> = (props) => {
                     setMessage(e.target.value);
                 }} className=" no-resize appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 mb-7 leading-tight focus:outline-none focus:bg-white focus:border-gray-500 h-48 resize-none"></textarea>
 
-                {notice ? <span className='mb-4'>Delivered Successfully</span> : null}
+                {notice ? <span className='mb-4 pb-4'>Delivered Successfully</span> : null}
                 <div className="flex items-center justify-center">
                     <button className="shadow bg-red-400 hover:bg-red-500 focus:shadow-outline focus:outline-none text-white font-bold py-2 px-4 rounded" onClick={(e) => {
                         e.preventDefault();

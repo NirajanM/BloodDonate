@@ -73,6 +73,27 @@ app.post("/review", express.json(), async (req, res) => {
     res.send("success");
 })
 
+app.post("/recorduser", express.json(), async (req, res) => {
+    const newUser = new User({
+        name: req.body.name,
+        email: req.body.email,
+        blood_group: req.body.blood_group,
+        gender: req.body.gender,
+        contact: req.body.contact,
+        address: req.body.address,
+        birthyear: req.body.birthyear
+    });
+    newUser.save((err) => {
+        if (err) {
+            console.log(err);
+        }
+        else {
+            console.log("sucess");
+        }
+    });
+    res.send("success");
+})
+
 app.listen(port, function (req, res) {
 
     console.log("Server is started on port ", port);

@@ -48,16 +48,12 @@ const List: React.FunctionComponent = () => {
     }, [requestedGroup]);
     return (
         <>
-            {bloodDonerList && bloodDonerList.map((userDetail) => {
-                return (
-                    <>
-                        <div className='grid grid-cols-1 justify-items-center items-center'>
-                            <span className='text-red-500 lg:text-lg text-center font-semibold p-2'>showing result for : {userDetail.blood_group}</span>
-                            <span className='text-slate-400 lg:text-lg text-center font-medium p-2'>(only dummy data in this section, but it's connected to database)</span>
-                        </div>
-                    </>
-                );
-            })}
+            {bloodDonerList &&
+                <div className='grid grid-cols-1 justify-items-center items-center'>
+                    <span className='text-red-500 lg:text-lg text-center font-semibold p-2'>showing result for : {bloodDonerList[0].blood_group}</span>
+                    <span className='text-slate-400 lg:text-lg text-center font-medium p-2'>(only dummy data in this section, but it's connected to database)</span>
+                </div>
+            }
             <div className='md:grid border-y-2 p-2 lg:text-lg font-semibold text-red-600 text-center grid-cols-3 mt-8 gap-y-8 gap-x-2'>
                 <span className=''>Name</span>
                 <span>Gender</span>

@@ -3,9 +3,6 @@ let Schema = mongoose.Schema;
 
 let userSchema = new Schema(
     {
-        _id: {
-            type: String,
-        },
         name: {
             type: String,
         },
