@@ -1,5 +1,10 @@
 import React, { useState } from 'react';
 import axios from 'axios';
+import AccountBoxIcon from '@mui/icons-material/AccountBox';
+import EmailIcon from '@mui/icons-material/Email';
+import MessageIcon from '@mui/icons-material/Message';
+import SendIcon from '@mui/icons-material/Send';
+import CheckBoxIcon from '@mui/icons-material/CheckBox';
 
 interface ContactUsProps {
 }
@@ -41,7 +46,7 @@ const ContactUs: React.FunctionComponent<ContactUsProps> = (props) => {
         <div className='h-screen flex items-center justify-center text-center px-4'>
             <form className="w-full max-w-3xl">
                 <label className="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-4" htmlFor="grid-password">
-                    Your Name
+                    <AccountBoxIcon /> Your Name
                 </label>
                 <input value={name} onChange={(e) => {
                     setName(e.target.value);
@@ -49,7 +54,7 @@ const ContactUs: React.FunctionComponent<ContactUsProps> = (props) => {
 
 
                 <label className="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-4" htmlFor="grid-password">
-                    E-mail
+                    <EmailIcon /> Your Email
                 </label>
                 <input value={email} onChange={(e) => {
                     setEmail(e.target.value);
@@ -58,19 +63,20 @@ const ContactUs: React.FunctionComponent<ContactUsProps> = (props) => {
 
 
                 <label className="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-4" htmlFor="grid-password">
-                    Message
+                    <MessageIcon /> Message
                 </label>
                 <textarea value={message} onChange={(e) => {
                     setMessage(e.target.value);
                 }} className=" no-resize appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 mb-7 leading-tight focus:outline-none focus:bg-white focus:border-gray-500 h-48 resize-none"></textarea>
 
-                {notice ? <span className='mb-4 pb-4'>Delivered Successfully</span> : null}
-                <div className="flex items-center justify-center">
+                {notice ? <span> <CheckBoxIcon /> Delivered Successfully</span> : null}
+
+                <div className="flex mt-4 items-center justify-center">
                     <button className="shadow bg-red-400 hover:bg-red-500 focus:shadow-outline focus:outline-none text-white font-bold py-2 px-4 rounded" onClick={(e) => {
                         e.preventDefault();
                         makeSendRequest();
                     }}>
-                        Send
+                        <SendIcon fontSize='small' /> Send
                     </button>
                 </div>
             </form>

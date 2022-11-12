@@ -14,9 +14,9 @@ const Footer: React.FunctionComponent = () => {
                         });
                     }} />
                 </Link>
-                <span>Designed and Developed by <a className='font-bold' href="https://www.linkedin.com/in/nirajan-malla-36a111210/">Nirajan Malla.</a></span>
+                <span>&#60; Designed and Developed by <a className='font-bold' href="https://www.linkedin.com/in/nirajan-malla-36a111210/">Nirajan Malla</a> /&#62;</span>
                 <span>© {currentYear}, All rights reserved.</span>
-                <div></div>
+                <span></span>
             </footer>
         </>
     );

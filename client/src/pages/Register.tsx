@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import axios from 'axios';
-import { type } from '@testing-library/user-event/dist/type';
+import SendToMobileIcon from '@mui/icons-material/SendToMobile';
+import CheckBoxIcon from '@mui/icons-material/CheckBox';
 
 interface IRegisterProps {
 }
@@ -16,9 +17,10 @@ type tRegister = {
 
 const Register: React.FunctionComponent<IRegisterProps> = (props) => {
     const [focusedAddress, setFocusedAddress] = useState<boolean>(false);
+    const [focusedEmail, setFocusedEmail] = useState<boolean>(false);
     const [name, setName] = useState<string>("");
-    const [gender, setGender] = useState<string>("");
-    const [bloodGroup, setBloodGroup] = useState<string>("");
+    const [gender, setGender] = useState<string>("Male");
+    const [bloodGroup, setBloodGroup] = useState<string>("A+");
     const [contact, setContact] = useState<string>("");
     const [address, setAddress] = useState<string>("");
     const [email, setEmail] = useState<string>("");
@@ -57,7 +59,7 @@ const Register: React.FunctionComponent<IRegisterProps> = (props) => {
                 <div>
                     <h1 className="text-red-400 font-bold text-4xl font-sans">Register</h1>
                     <p className="text-black mt-1">for a chance to be a real life hero</p>
-                    <p className="text-slate-500 mt-1">(we won't disclose your contact or email publicly)</p>
+                    <p className="text-slate-500 mt-1">(people in need will reach you through your email)</p>
                 </div>
             </div>
             <div className="flex w-full md:w-1/2 justify-center items-center">
@@ -99,6 +101,11 @@ const Register: React.FunctionComponent<IRegisterProps> = (props) => {
                             </div>
                         </div>
                     </div>
+                    <input
+                        onFocus={() => { setFocusedEmail(true) }}
+                        onBlur={() => { setFocusedEmail(false) }}
+                        className="border-2 py-2 px-3 mt-4 rounded-2xl block text-center outline-none" type="text" value={email} onChange={e => setEmail(e.target.value)} placeholder="your email" />
+                    {focusedEmail && <span className='text-sm text-slate-400'>format: xxxxxxx@gmail.com</span>}
                     <input className="border-2 py-2 px-3 rounded-2xl mt-4 block text-center outline-none" type="string" value={birthYear}
                         onChange={e => { setBirthYear(e.target.value) }}
                         placeholder="birthyear in AD" />
@@ -109,12 +116,13 @@ const Register: React.FunctionComponent<IRegisterProps> = (props) => {
                         className="border-2 py-2 px-3 mt-4 rounded-2xl block text-center outline-none" type="text" value={address} onChange={e => setAddress(e.target.value)} placeholder="your address" />
                     {focusedAddress && <span className='text-sm text-slate-400'>format: devchuli-16,Nawalpur</span>}
 
-                    {notice ? <span>✔ Data Recorded Successfully</span> : null}
+
+                    {notice ? <span><CheckBoxIcon /> Data Recorded Successfully</span> : null}
 
                     <button className="block w-full bg-red-400 hover:bg-red-500 mt-4 py-2 rounded-2xl text-white font-semibold mb-2" onClick={(e) => {
                         e.preventDefault();
                         sendData();
-                    }}>submit</button>
+                    }}>< SendToMobileIcon fontSize='small' /> submit</button>
                 </form>
             </div>
         </div>
