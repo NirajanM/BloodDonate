@@ -2,7 +2,6 @@ import React from 'react';
 import QandA from './QandA';
 import LinkIcon from '@mui/icons-material/Link';
 import QuestionAnswerIcon from '@mui/icons-material/QuestionAnswer';
-import BloodtypeIcon from '@mui/icons-material/Bloodtype';
 
 const BDC: React.FunctionComponent = () => {
     const arrayOfQandA = [
